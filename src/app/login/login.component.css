@@ -1,0 +1,24 @@
+.login-tab-container{
+    height: 100%;
+    width: 100%;
+    position : relative;
+}
+
+.login-tab-group{
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    padding-top: 3em;
+}
+
+.example-form {
+    /* min-width: 150px;
+    max-width: 500px; */
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 70%;
+  }

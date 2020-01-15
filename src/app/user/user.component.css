@@ -1,0 +1,31 @@
+.user-container{
+  height: 100%;
+  width: 100%;
+  position : relative;
+}
+
+
+.example-container {
+  
+  height: 100%;
+  width: 100%;
+  max-width: 800px;
+  max-height: 500px;
+    /* border: 1px solid rgba(0, 0, 0, 0.5); */
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    /* padding-top: 3em; */
+  }
+/*   
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  } */
+  
+  /* .example-sidenav {
+    padding: 20px;
+  } */
