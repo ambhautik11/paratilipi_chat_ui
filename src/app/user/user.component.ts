@@ -79,7 +79,7 @@ export class UserComponent implements OnInit {
   }
 
   openChat(user_id: string) {
-    this.title = "In Conversation with " + user_id;
+    this.title = "In conversation with " + user_id;
     this.authService.startConv(user_id);
     this.currentUser = user_id;
     this.messages = this.userChatMap.get(user_id);
@@ -124,4 +124,5 @@ export class UserComponent implements OnInit {
     this._snackBar.open(message,"",{
       duration: 2000,
     });
+  }
 }

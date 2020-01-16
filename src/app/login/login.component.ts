@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   showSpinner: boolean;
-
+  con_password: string;
   ngOnInit() {
   }
   login(): void {
@@ -81,12 +81,16 @@ export class LoginComponent implements OnInit {
         this.showSpinner = false;
         flag = false
         this.openSnackBar("Username must only contain alphabets,numbers and unserscore")
-
         return;
       }
     }
     if (!flag)
       return;
+    if (!(this.con_password === this.password)) {
+      this.openSnackBar("Passwords does not match");
+      this.showSpinner = false;
+      return;
+    }
     if (this.password.indexOf(' ') >= 0) {
       this.openSnackBar("Password cannot conatain spaces");
       this.showSpinner = false;
@@ -97,11 +101,12 @@ export class LoginComponent implements OnInit {
       this.showSpinner = false;
       this.openSnackBar("Successfully registered !!");
     }, error => {
+      this.showSpinner = false;
       this.openSnackBar(error.message);
     });
   }
   openSnackBar(message: string) {
-    this._snackBar.open(message,"",{
+    this._snackBar.open(message, "", {
       duration: 2000,
     });
   }

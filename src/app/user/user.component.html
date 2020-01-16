@@ -1,10 +1,10 @@
 <div class="user-container row">
   <mat-drawer-container *ngIf="isReady" class="example-container col-lg-5 col-md-6 col-sm-8 col-xs-10" hasBackdrop>
-    <mat-drawer #drawer style="width:100%" :class="example-sidenav" mode="over">
+    <mat-drawer #drawer style="width:100%" :class="example-sidenav" mode="over" open>
       <mat-toolbar color="secondary" style="height: 3%">
-        <mat-toolbar-row><span> Users </span></mat-toolbar-row>
+        <mat-toolbar-row><span style="padding-left:1em"> Users </span></mat-toolbar-row>
       </mat-toolbar>
-      <mat-list style="height: 97%">
+      <mat-list style="height: 97%;padding-left: 1em">
         <mat-list-item *ngFor="let user of users" (click)="openChat(user)" (click)="drawer.toggle()">
           <!-- <img matListAvatar src="..." alt="..."> -->
           <h3 matLine> {{user}} </h3>
@@ -16,13 +16,15 @@
         </mat-list-item>
       </mat-list>
     </mat-drawer>
-    <mat-drawer-content style="width:100%">
-      <mat-toolbar color="secondary" style="height: 3%">
-        <mat-toolbar-row><mat-icon style="padding-right: 2em" (click)="drawer.toggle()">menu</mat-icon><span> {{title}} </span></mat-toolbar-row>
+    <mat-drawer-content style="width:100%;">
+      <mat-toolbar color="secondary" style="height: 10%">
+        <mat-toolbar-row>
+          <mat-icon style="padding-right: 2em" (click)="drawer.toggle()">menu</mat-icon><span> {{title}} </span>
+        </mat-toolbar-row>
       </mat-toolbar>
-      <div class="example-sidenav-content" style="height:97%;display: block">
-        <div style="height: 85%;width: 100%;;overflow-y:scroll">
-          <mat-list *ngIf="currentUser != undefined">
+      <div class="example-sidenav-content" style="height:80%;display: block">
+        <div style="height: 100%;width: 100%;;overflow-y:scroll">
+          <mat-list style="padding-left: 2em" *ngIf="currentUser != undefined">
             <!-- <label *ngIf="messages.length == 0">No Messages to Show</label> -->
             <mat-list-item *ngFor="let message of messages">
               <mat-icon *ngIf="user.user_id == message.to_user" matListAvatar>call_received</mat-icon>
@@ -35,13 +37,13 @@
             </mat-list-item>
           </mat-list>
         </div>
-        <div style="height: 10%;width: 100%">
-          <div *ngIf="currentUser != undefined" class="conversation-input">
-            <mat-form-field style="width:100%">
-              <input matInput placeholder="Start typing..." name="text" [(ngModel)]="text">
-              <mat-icon matSuffix (click)="sendMessage(text)" color = "pink">send</mat-icon>
-            </mat-form-field>
-          </div>
+      </div>
+      <div style="height: 10%;width: 100%">
+        <div *ngIf="currentUser != undefined" class="conversation-input">
+          <mat-form-field style="width:100%">
+            <input matInput placeholder="Start typing..." name="text" [(ngModel)]="text">
+            <mat-icon matSuffix (click)="sendMessage(text)" color="pink">send</mat-icon>
+          </mat-form-field>
         </div>
       </div>
     </mat-drawer-content>
