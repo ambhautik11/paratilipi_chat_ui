@@ -95,12 +95,14 @@ export class LoginComponent implements OnInit {
     let user = { user_id: this.username, password: this.password };
     this.httpService.postData(this.urlService.baseUrl + this.urlService.signUp, user).subscribe(response => {
       this.showSpinner = false;
-      this.openSnackBar("Registration successfull !!");
+      this.openSnackBar("Successfully registered !!");
     }, error => {
       this.openSnackBar(error.message);
     });
   }
   openSnackBar(message: string) {
-    this._snackBar.open(message);
+    this._snackBar.open(message,"",{
+      duration: 2000,
+    });
   }
 }

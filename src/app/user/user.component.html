@@ -29,7 +29,7 @@
               <mat-icon *ngIf="user.user_id == message.from_user" matListAvatar>call_made</mat-icon>
               <h3 matLine> {{message.text}} </h3>
               <p matLine>
-                <span>time </span>
+                <span>{{message.timeStamp}}</span>
               </p>
               <mat-divider></mat-divider>
             </mat-list-item>
@@ -37,7 +37,7 @@
         </div>
         <div style="height: 10%;width: 100%">
           <div *ngIf="currentUser != undefined" class="conversation-input">
-            <mat-form-field style="width:90%">
+            <mat-form-field style="width:100%">
               <input matInput placeholder="Start typing..." name="text" [(ngModel)]="text">
               <mat-icon matSuffix (click)="sendMessage(text)" color = "pink">send</mat-icon>
             </mat-form-field>

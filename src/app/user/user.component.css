@@ -18,6 +18,9 @@
     transform: translate(-50%, 0%);
     /* padding-top: 3em; */
   }
+  .conversation-input{
+    padding: 2em;
+  }
 /*   
   .example-sidenav-content {
     display: flex;

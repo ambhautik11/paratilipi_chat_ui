@@ -120,8 +120,8 @@ export class UserComponent implements OnInit {
     this.webSocketAPI._send(message);
     this.text = '';
   }
-
   openSnackBar(message: string) {
-    this._snackBar.open(message);
-  }
+    this._snackBar.open(message,"",{
+      duration: 2000,
+    });
 }
